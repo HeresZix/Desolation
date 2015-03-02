@@ -5,3 +5,6 @@ Planned Features
   - Looting
   - Helicopter Crashes
   - Random Events
+  - Computer/Code System
+  - Hacking
+  - Trading
