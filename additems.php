@@ -22,7 +22,8 @@ $items = array(
 	"Supply Crate",
 	"Metal Pole",
 	"Broken Keyboard",
-	"Keyboard"
+	"Keyboard",
+	"Crude Glass Spear"
 );
 
 $itemlength = count($items);

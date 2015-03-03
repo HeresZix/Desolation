@@ -89,7 +89,7 @@ function getTimeSinceLastLoot($date, $id){
 
 function canLoot($id) {
 	// In minutes
-	$loottimer = 10;
+	$loottimer = 2;
 	$timecheck = mysql_query("SELECT timesinceloot FROM misc_data WHERE id='$id'") or die(mysql_error());
 	if (mysql_num_rows($timecheck) == 0){
 		echo "You broke it. Im not sure how, but you did.";
