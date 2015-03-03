@@ -197,26 +197,26 @@ function addItemToInventory($inventory, $itemID, $amount) {
 	
 	echo $newinvarray;
 }
+
+function removeItemFromInventory($inventory, $itemID, $amount){
+	$items = explode(";", $inventory);
+	$arrlength = count($items);
+	
+	$newinvarray = array();
+	
+	for ($x = 0; $x < $arrlength; $x++) {
+		$item = explode(":", $items[$x]);
+		array_push($newinvarray, $items[$x]);
+		
+		if ($item[0] == $itemID) {
+			$item[1] = $item[1] - $amount;
+			$newitemdata = implode(":", array($item[0], $item[1]));
+			unset($newinvarray[$x]);
+			array_push($newinvarray, $newitemdata);
+		}
+	}
+
+	$newinvarray = implode(";", $newinvarray);	
+	return $newinvarray;
+}
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
