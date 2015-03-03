@@ -16,16 +16,14 @@ $blacklist = array(
 
 for($x = 0; $x < $loottofind; $x++){
 	$curloot = mt_rand(1, 12);
-	//if(!in_array($curloot, $blacklist)){
-	array_push($lootfound, $curloot);
-	//}
+	if(!in_array($curloot, $blacklist)){
+		array_push($lootfound, $curloot);
+	}
 }
-
-echo getSerializedInventory($_SESSION['uid']);
 
 echo "<br>You found:<br>";
 
-for($y = 0; $y < $loottofind; $y++){
+for($y = 0; $y < count($lootfound); $y++) {
 	echo getItemNameFromID($lootfound[$y]) . "<br>";
 	addItemToInventoryAndSave(getSerializedInventory($_SESSION['uid']), $lootfound[$y], 1);
 }
