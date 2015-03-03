@@ -24,15 +24,12 @@ for($x = 0; $x < $loottofind; $x++){
 echo getSerializedInventory($_SESSION['uid']);
 
 echo "<br>You found:<br>";
-echo getItemNameFromID($lootfound[1]) . "<br>";
-echo addItemToInventory(getSerializedInventory($_SESSION['uid']), $lootfound[1], 1);
 
-//for($y = 0; $y < $loottofind; $y++){
-//	echo getItemNameFromID($lootfound[$y]) . "<br>";
-//	echo addItemToInventory(getSerializedInventory($_SESSION['uid']), $lootfound[$y], 1);
-//}
+for($y = 0; $y < $loottofind; $y++){
+	echo getItemNameFromID($lootfound[$y]) . "<br>";
+	addItemToInventoryAndSave(getSerializedInventory($_SESSION['uid']), $lootfound[$y], 1);
+}
 echo "<br>";
-echo getSerializedInventory($_SESSION['uid']) . "<br>";
 ?>
 
 <a href="../">Head Home</a>
