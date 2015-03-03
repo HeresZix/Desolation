@@ -21,11 +21,16 @@ if (strlen($username) > 20) {
     } elseif (mysql_num_rows($register2) > 0) {
         echo "Email address already in use";
     } else {
+		
+		$coord1 = mt_rand(100, 999);
+		$coord2 = mt_rand(100, 999);
+		$coords = $coord1 . $coord2;
+	
 		$defaultinventory = "12:1;1:10;4:1";
 		$defaultloottime = date("Y-m-d H:i:s", "2000-1-1 00:00:00");
         $ins1 = mysql_query("INSERT INTO users (username, password, email, gamestate) VALUES ('$username', '" . md5($password) . "', '$email', '0')") or die(mysql_error());
 		$ins2 = mysql_query("INSERT INTO inventories (inventory) VALUES ('$defaultinventory')") or die(mysql_error());
-		$ins3 = mysql_query("INSERT INTO misc_data (timesinceloot) VALUES ('$defaultinventory')") or die(mysql_error());
+		$ins3 = mysql_query("INSERT INTO misc_data (timesinceloot, grid) VALUES ('$defaultinventory', '$coords')") or die(mysql_error());
         header("Location: ../login");
     }
 }

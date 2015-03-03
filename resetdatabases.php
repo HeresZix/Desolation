@@ -11,6 +11,7 @@ mysql_query("CREATE TABLE `desolation`.`users` ( `id` INT NOT NULL AUTO_INCREMEN
 mysql_query("ALTER TABLE `users` ADD `gamestate` INT NOT NULL;");
 mysql_query("CREATE TABLE `desolation`.`inventories` ( `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,  `inventory` VARCHAR(2048) NOT NULL ) ENGINE = InnoDB");
 mysql_query("CREATE TABLE `desolation`.`misc_data` ( `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,  `timesinceloot` DATETIME NOT NULL ) ENGINE = InnoDB;");
+mysql_query("ALTER TABLE `misc_data` ADD `grid` INT NOT NULL;");
 
 echo "Done!";
 ?>

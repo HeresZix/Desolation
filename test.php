@@ -5,14 +5,8 @@ session_start();
 
 $inventory = getSerializedInventory($_SESSION['uid']);
 
-$items = explode(";", $inventory);
-$arrlength = count($items);
-for ($x = 0; $x < $arrlength; $x++) {
-	$item = explode(":", $items[$x]);
-	echo $items[$x] . "<br>";
-	
-	echo $item[0] . "<br>";
-	echo $item[1] . "<br><br>";
-}
+$coord1 = mt_rand(100, 999);
+$coord2 = mt_rand(100, 999);
+echo $coords = $coord1 . $coord2;
 
 ?>

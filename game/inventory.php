@@ -1,7 +1,7 @@
 <?php
 
 $inventory = getSerializedInventory($_SESSION['uid']);
-$inventoryarray = getInventoryArray($inventory);
+$inventoryarray = explode(";", $inventory);
 
 $arrlength = count($inventoryarray);
 
