@@ -177,24 +177,22 @@ function addItemToInventory($inventory, $itemID, $amount) {
 	
 	$newinvarray = array();
 	
-	for ($x = 0; $x < $arrlength; $x++) {
-		$item = explode(":", $items[$x]);
-		array_push($newinvarray, $items[$x]);
-		
-		if (!in_array($itemID, $newinvarray)) {
-			array_push($newinvarray, $itemID . ":" . $amount);
-		}
-		
-		if ($item[0] == $itemID) {
-			$item[1] = $item[1] + $amount;
-			$newitemdata = implode(":", array($item[0], $item[1]));
-			unset($newinvarray[$x]);
-			array_push($newinvarray, $newitemdata);
+	for($x = 0; $x < $arrlength; $x++) {
+		$itemdata = explode(":", $items[$x]);
+		if($itemdata[0] == $itemID){
+			$newamount = $itemdata[1] + $amount;
+			array_push($newinvarray, $itemdata[0] . ":" . $newamount);
+		} else {
+			array_push($newinvarray, $itemdata[0] . ":" . $itemdata[1]);
 		}
 	}
-
-	$newinvarray = implode(";", $newinvarray);	
-	return $newinvarray;
+	
+	if (!in_array($itemID, $newinvarray)) {
+		array_push($newinvarray, $itemID . ":" . $amount);
+	} 
+	
+	$newinvstring = implode(";", $newinvarray);
+	return $newinvstring;
 }
 
 function addItemToInventoryAndSave($inventory, $itemID, $amount) {

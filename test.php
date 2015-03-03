@@ -3,10 +3,8 @@ include("includes/functions.php");
 connect();
 session_start();
 
-$inventory = getSerializedInventory($_SESSION['uid']);
-
-$coord1 = mt_rand(100, 999);
-$coord2 = mt_rand(100, 999);
-echo $coords = $coord1 . $coord2;
+$inventory = "12:1;1:10;4:1";
+echo $inventory . "<br>";
+echo redo($inventory, 4, 3);
 
 ?>
